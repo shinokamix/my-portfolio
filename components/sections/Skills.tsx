@@ -7,19 +7,17 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import ScrollOpacityText from "../shared/ScrollOpacityText";
 
-export default function Skills() {
+export default function Skills({ className }: { className?: string }) {
     const [hovered, setHovered] = useState("");
 
     const sectionRef = useRef<HTMLElement | null>(null);
     const { scrollYProgress } = useScroll({
         target: sectionRef,
-        offset: ["end end", "end start"],
+        offset: ["end 0.6", "end start"],
     });
 
-    // слегка сгладим
     const smooth = useSpring(scrollYProgress, { stiffness: 120, damping: 20 });
 
-    // диагональ: из левого-нижнего в правый-верхний, только в диапазоне [0,1]
     const x = useTransform(smooth, [0, 1], ["0vw", "40vw"], { clamp: true });
     const y = useTransform(smooth, [0, 1], ["0vh", "-40vh"], { clamp: true });
 
@@ -28,19 +26,19 @@ export default function Skills() {
 
     return (
         <section
-            className="relative flex md:flex-row flex-col w-dvw min-h-screen"
+            className={`relative flex sm:flex-row flex-col w-dvw ${className}`}
             ref={sectionRef}
         >
-            <div className="flex flex-col justify-between w-[50%]">
-                <ScrollOpacityText className="m-[10%] font-serif text-[3dvw] whitespace-normal">
+            <div className="flex sm:w-[50%] sm:mb-[30dvw]">
+                <ScrollOpacityText className="m-[10%] font-serif md:text-[3dvw] text-[1.5dvh] whitespace-normal">
                     I like code that behaves. Fast, predictable, and invisible.
                 </ScrollOpacityText>
             </div>
 
-            <div className="w-[50%] flex grow items-center">
+            <div className="sm:w-[50%] sm:ml-0 ml-[10%] flex grow items-center">
                 <div className="flex font-sans font-light text-[1dvw]">
                     <section className="mr-[40%]">
-                        <h1 className="font-serif font-bold text-[2dvw] whitespace-pre">
+                        <h1 className="font-serif font-bold md:text-[2dvw] text-[1dvh] whitespace-pre">
                             Technical Skills
                         </h1>
                         <div className="flex gap-[40%]">
@@ -59,7 +57,7 @@ export default function Skills() {
                                                     opacity:
                                                         hovered &&
                                                         hovered !== item.id
-                                                            ? 0.4
+                                                            ? 0.2
                                                             : 1,
                                                 }}
                                                 transition={{ duration: 0.3 }}
@@ -76,7 +74,7 @@ export default function Skills() {
                         </div>
                     </section>
                     <section>
-                        <h1 className="font-serif font-bold text-[2dvw]">
+                        <h1 className="font-serif font-bold md:text-[2dvw] text-[1dvh]">
                             Languages
                         </h1>
                         <p>{"Russian (native)"}</p>
@@ -85,15 +83,16 @@ export default function Skills() {
                 </div>
             </div>
             <motion.div
-                className="absolute left-0 bottom-0 pointer-events-none will-change-transform z-10"
+                className="absolute left-0 bottom-0 pointer-events-none will-change-transform z-10 sm:block hidden"
                 style={{ x, y }}
             >
                 <Image
                     src="/plane.png"
                     alt="plane"
-                    width={800}
-                    height={800}
+                    width={875}
+                    height={581}
                     priority
+                    className="max-w-[40dvw]"
                 />
             </motion.div>
         </section>

@@ -93,7 +93,7 @@ export default function Cursor() {
     if (isTouch || !inWindow) return null;
 
     const base = 18;
-    const scale = hovering ? 3 : 1;
+    const scale = hovering ? 5 : 1;
 
     return (
         <motion.div
@@ -103,7 +103,7 @@ export default function Cursor() {
             animate={{ scale }}
             transition={{ type: "spring", stiffness: 380, damping: 28 }}
         >
-            <div className="h-full w-full rounded-full bg-black opacity-50" />
+            <div className="h-full w-full rounded-full bg-black opacity-30" />
         </motion.div>
     );
 }

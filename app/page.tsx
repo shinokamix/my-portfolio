@@ -11,13 +11,13 @@ export default function Home() {
     return (
         <div>
             <Hero />
-            <About />
-            <Manifesto />
-            <Experience />
-            <Skills />
-            <ProjectsSection />
-            <Outro />
-            <Footer />
+            <About className="lg:mt-[10%] md:mt-[10%]" />
+            <Manifesto className="lg:mt-[20%] md:mt-[40%] sm:mt-[50%] mt-[100%]" />
+            <Experience className="lg:mt-0 md:mt-[30%] sm:mt-[40%]" />
+            <Skills className="lg:mt-[55dvh] mt-[50dvh]" />
+            <ProjectsSection className="lg:mt-[10%] md:mt-[30%] sm:mt-[40%]" />
+            <Outro className="lg:mt-[25%] md:mt-[40%] sm:mt-[50%] mt-[50%]" />
+            <Footer className="md:mt-[10%] sm:mt-[30%] mt-[60%]" />
         </div>
     );
 }

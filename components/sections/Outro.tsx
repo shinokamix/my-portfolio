@@ -3,22 +3,28 @@ import ParallaxContainer from "../shared/ParallaxContainer";
 import Marquee from "../shared/Marqee";
 import OpacitySection from "../shared/OpacitySection";
 
-export default function Outro() {
+export default function Outro({ className }: { className?: string }) {
     const y: number = -200;
 
     return (
-        <section className="min-h-screen flex flex-col justify-between">
-            <div className="flex h-[97dvh] mt-[5dvh] relative">
+        <OpacitySection
+            offset={["start 1", "end 0.6"]}
+            inputRange={[0, 0.2, 0.8, 1]}
+            outputRange={[1, 1, 1, 0]}
+            className={`flex flex-col gap-[10dvh] md:gap-[20dvh] lg:gap-[30dvh] ${className}`}
+        >
+            <div className="flex relative">
                 <ParallaxContainer
                     y={y}
                     z={0}
-                    className="flex justify-center absolute left-[5%] top-[40%] pointer-events-none"
+                    className="flex justify-center absolute left-[5%] top-[70%] pointer-events-none"
                 >
                     <Image
                         src={"/outroImage.png"}
                         alt="image"
-                        width={400}
-                        height={600}
+                        width={436}
+                        height={545}
+                        className="max-w-[20dvw]"
                     />
                 </ParallaxContainer>
 
@@ -27,33 +33,28 @@ export default function Outro() {
                         I enjoy learning new things and turning ideas into
                         working products.
                     </p>
-                    <OpacitySection
-                        offset={["start 0.9", "end 0.1"]}
-                        inputRange={[0, 0.2, 0.8, 1]}
-                        outputRange={[0, 1, 1, 0]}
-                    >
-                        <p className="font-bold">
-                            {`I'm looking for opportunities to grow, create, and be part of
+
+                    <p className="font-bold">
+                        {`I'm looking for opportunities to grow, create, and be part of
                 something meaningful.`}
-                        </p>
-                    </OpacitySection>
+                    </p>
                 </div>
 
                 <ParallaxContainer
                     y={y}
                     z={0}
-                    className="flex justify-center absolute right-[5%] top-[40%] pointer-events-none"
+                    className="flex justify-center absolute right-[5%] top-[70%] pointer-events-none"
                 >
                     <Image
                         src={"/outroImage.png"}
                         alt="image"
-                        width={400}
-                        height={0}
-                        className="scale-x-[-1]"
+                        width={436}
+                        height={545}
+                        className="scale-x-[-1] max-w-[20dvw]"
                     />
                 </ParallaxContainer>
             </div>
             <Marquee className="" />
-        </section>
+        </OpacitySection>
     );
 }

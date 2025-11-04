@@ -16,7 +16,7 @@ export default function ScrollOpacityText({
     const { scrollYProgress } = useScroll({
         target: container,
 
-        offset: ["start 0.9", "start 0.25"],
+        offset: ["start 0.9", "start 0.35"],
     });
 
     const characters = children.split("");

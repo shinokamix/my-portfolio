@@ -1,13 +1,13 @@
 import Projects from "../shared/Projects";
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ className }: { className?: string }) {
     return (
-        <section className="w-screen flex">
-            <div className="w-[50%]">
-                <h1 className="ml-[10%] mt-[10%] font-serif font-bold text-[5dvw]">
+        <section className={`w-screen flex sm:flex-row flex-col ${className}`}>
+            <div className="sm:w-[50%]">
+                <h1 className="ml-[10%] mt-[10%] font-serif font-bold md:text-[5dvw] text-[3dvh]">
                     <span className="font-light">{"(My)"}</span>Projects
                 </h1>
-                <section className="mx-[10%] mt-[2.5%] font-sans text-[1dvw] flex flex-col gap-[1dvw]">
+                <section className="mx-[10%] mt-[2.5%] font-sans md:text-[1dvw] text-[0.5dvh] flex flex-col gap-[1dvw]">
                     <p>This is my creative lab.</p>
                     <p>
                         A place where I test ideas, break things on purpose, and
@@ -26,7 +26,7 @@ export default function ProjectsSection() {
                 </section>
             </div>
 
-            <div className="w-[50%] flex mt-[13%]">
+            <div className="sm:w-[50%] sm:mx-0 mx-[10%] flex mt-[13%]">
                 <Projects />
             </div>
         </section>

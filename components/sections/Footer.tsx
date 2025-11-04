@@ -16,7 +16,7 @@ function formatKazanTime() {
     }).format(new Date());
 }
 
-export default function Footer() {
+export default function Footer({ className }: { className?: string }) {
     const [time, setTime] = useState<string>("");
     const [hovered, setHovered] = useState("");
 
@@ -38,9 +38,9 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="min-h-screen relative overflow-hidden">
-            <div className="flex w-screen h-[90dvh]">
-                <section className="flex flex-col ml-[10%] h-full justify-center gap-[1dvh] font-sans font-normal text-[2dvw] w-[50%] group">
+        <footer className={`relative overflow-hidden ${className}`}>
+            <div className="flex w-screen items-stretch">
+                <section className="flex flex-col ml-[10%] mt-[5%] h-full justify-center gap-[1dvh] font-sans font-normal md:text-[2dvw] text-[1dvh] w-[50%] group">
                     {contactInfo.map((item) => (
                         <motion.div
                             key={item.id}
@@ -48,7 +48,7 @@ export default function Footer() {
                             onHoverEnd={() => setHovered("")}
                             animate={{
                                 opacity:
-                                    hovered && hovered !== item.id ? 0.4 : 1,
+                                    hovered && hovered !== item.id ? 0.2 : 1,
                             }}
                             transition={{ duration: 0.3 }}
                             className="w-fit"
@@ -57,26 +57,26 @@ export default function Footer() {
                         </motion.div>
                     ))}
                 </section>
-                <section className="flex flex-col gap-[1dvh] font-sans text-[2dvw] w-[50%] text-right mt-[20dvh] mr-[10%]">
-                    <h1 className="font-serif font-bold text-[5dvw]">
+                <section className="flex flex-col gap-[1dvh] font-sans md:text-[2dvw] text-[1dvh] w-[50%] text-right mr-[10%]">
+                    <h1 className="font-serif font-bold md:text-[5dvw] text-[2dvh]">
                         {`Let's Connect`}
                     </h1>
                     <div className="flex flex-col gap-[1dvh] mr-[10%]">
                         <p>+7 (996) 900 35-77</p>
                         <p>nail.dev@icloud.com</p>
                     </div>
-                    <p className="font-sans font-light text-[1dvw] text-left mt-[40%]">
+                    <p className="font-sans font-light md:text-[1dvw] text-[0.5dvh] text-left mt-[40%]">
                         Thanks for visiting
                     </p>
                 </section>
             </div>
-            <div className="h-[10dvh] font-serif flex justify-between mx-[5%] items-center">
+            <div className="my-[2%] md:text-[1dvw] text-[0.5dvh] font-serif flex justify-between mx-[5%] items-center">
                 <p>{time ? `${time} KAZAN, RUSSIA` : `--:-- KAZAN, RUSSIA`}</p>
                 <p className="">
                     © {currentYear} Nail Abdullin. All Rights Reserved.
                 </p>
             </div>
-            <div className="absolute -bottom-[20%] left-[25%] pointer-events-none">
+            <div className="absolute md:-bottom-[27%] -bottom-[35%] left-[20%] pointer-events-none">
                 <ParallaxContainer
                     y={-450}
                     z={-10}
@@ -84,8 +84,9 @@ export default function Footer() {
                     <Image
                         src={"/footerImage.png"}
                         alt=""
-                        width={500}
-                        height={1000}
+                        width={631}
+                        height={946}
+                        className="max-w-[25dvw]"
                     />
                 </ParallaxContainer>
             </div>

@@ -10,11 +10,13 @@ export default function OpacitySection({
     offset = ["start 1", "end 0"],
     inputRange = [0, 1, 1, 1],
     outputRange = [0, 1, 1, 1],
+    className = "",
 }: {
     children: ReactNode;
     offset?: ScrollOffset;
     inputRange?: [number, number, number, number];
     outputRange?: [number, number, number, number];
+    className?: string;
 }) {
     const container = useRef(null);
 
@@ -31,6 +33,7 @@ export default function OpacitySection({
         <motion.section
             style={{ opacity: opacity }}
             ref={container}
+            className={className}
         >
             {children}
         </motion.section>

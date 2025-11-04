@@ -12,7 +12,7 @@ export default function AccordionRow({ item }: { item: Item }) {
     return (
         <div className="border my-1">
             <button
-                className="w-full flex items-center justify-between p-4 hover:cursor-pointer"
+                className="w-full flex items-center justify-between p-[2%] hover:cursor-pointer"
                 aria-expanded={open}
                 aria-controls={contentId}
                 onClick={() => setOpen((v) => !v)}
