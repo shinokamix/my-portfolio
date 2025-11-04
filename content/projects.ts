@@ -17,7 +17,7 @@ export const projectsList: projectItem[] = [
     {
         id: "2",
         title: "Portfolio Website",
-        link: "",
+        link: "https://github.com/shinokamix/my-portfolio",
         imageSrc: "/portfolioDemo.gif",
         color: "",
     },

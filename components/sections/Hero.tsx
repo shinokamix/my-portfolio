@@ -4,7 +4,7 @@ export default function Hero() {
     return (
         <section className="min-h-screen flex flex-col items-center">
             <div className="grow flex items-center justify-center">
-                <h1 className="font-serif font-bold text-9xl text-center">
+                <h1 className="font-serif font-bold text-[7dvw] text-center">
                     Nail Abdullin
                 </h1>
             </div>
@@ -14,7 +14,7 @@ export default function Hero() {
                 inputRange={[0, 0, 0.8, 1]}
                 outputRange={[1, 1, 1, 0]}
             >
-                <p className="mb-10 font-sans font-light text-2xl">
+                <p className="mb-10 font-sans font-light text-[1dvw]">
                     slide for more
                 </p>
             </OpacitySection>
