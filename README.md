@@ -1,4 +1,4 @@
-# My Portfolio — [shinokami.vercel.app](https://shinokami.vercel.app)
+# My Portfolio
 
 A modern and minimal personal portfolio built with **Next.js 16**, **React 19**, and smooth motion effects powered by **GSAP**, **Lenis**, and **Motion**.
 It showcases my work, skills, and creative projects with an elegant, high-performance UI.
