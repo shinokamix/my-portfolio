@@ -1,5 +1,7 @@
 # My Portfolio
 
+![App Demo](./public/portfolioDemo.gif)
+
 A modern and minimal personal portfolio built with **Next.js 16**, **React 19**, and smooth motion effects powered by **GSAP**, **Lenis**, and **Motion**.
 It showcases my work, skills, and creative projects with an elegant, high-performance UI.
 
@@ -18,6 +20,6 @@ It showcases my work, skills, and creative projects with an elegant, high-perfor
 *  Fully responsive layout
 *  Fast load times and SEO friendly
 
-## 🪪 License
+## License
 
 This project is licensed under the **MIT License** — feel free to use, modify, and share.
