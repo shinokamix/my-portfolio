@@ -8,21 +8,21 @@ export const contactInfo: contactItem[] = [
     {
         id: "1",
         title: "INSTAGRAM",
-        link: "",
+        link: "https://www.instagram.com/ssslayerr",
     },
     {
         id: "2",
         title: "TELEGRAM",
-        link: "",
+        link: "https://t.me/shinokamix",
     },
     {
         id: "3",
         title: "X/TWITTER",
-        link: "",
+        link: "https://x.com/shinokamixx",
     },
     {
         id: "4",
         title: "GITHUB",
-        link: "",
+        link: "https://github.com/shinokamix",
     },
 ];
