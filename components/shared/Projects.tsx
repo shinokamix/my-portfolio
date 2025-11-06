@@ -6,13 +6,15 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 import { motion } from "motion/react";
 
-type HoverState =
-    | { src: string; x: number; y: number; visible: true }
-    | { visible: false };
+type HoverState = { x: number; y: number; visible: true } | { visible: false };
 
 export default function Projects() {
     const wrapRef = useRef<HTMLDivElement | null>(null);
     const [hover, setHover] = useState<HoverState>({ visible: false });
+    const [currentSrc, setCurrentSrc] = useState<string | null>(
+        () => projectsList[0]?.imageSrc ?? null
+    );
+
     const rafRef = useRef<number | null>(null);
 
     const updatePointer = (src: string, e: React.MouseEvent) => {
@@ -25,7 +27,9 @@ export default function Projects() {
 
         if (rafRef.current) cancelAnimationFrame(rafRef.current);
         rafRef.current = requestAnimationFrame(() => {
-            setHover({ visible: true, src, x, y });
+            // CHANGED: обновляем src отдельно (оно уже смонтировано)
+            if (currentSrc !== src) setCurrentSrc(src);
+            setHover({ visible: true, x, y });
         });
     };
 
@@ -63,7 +67,6 @@ export default function Projects() {
                     );
                 })}
             </ul>
-
             <motion.div
                 className="absolute left-0 top-0 z-50 pointer-events-none will-change-transform"
                 initial={{ opacity: 0, scale: 0.95, x: 0, y: 0 }}
@@ -81,18 +84,21 @@ export default function Projects() {
                     opacity: { duration: 0.15 },
                 }}
             >
-                {hover.visible && (
-                    <div className="rounded-xl overflow-hidden shadow-2xl">
+                <div className="rounded-xl overflow-hidden shadow-2xl">
+                    {/* ВАЖНО: не передавать пустой src */}
+                    {currentSrc && (
                         <Image
-                            src={hover.visible ? hover.src : ""}
+                            src={currentSrc}
                             alt="Project preview"
                             width={320}
                             height={0}
-                            className="block aspect-16/10 object-cover"
+                            className={`block aspect-16/10 object-cover transition-opacity duration-300 ${
+                                hover.visible ? "opacity-100" : "opacity-0"
+                            }`}
                             priority
                         />
-                    </div>
-                )}
+                    )}
+                </div>
             </motion.div>
         </div>
     );
